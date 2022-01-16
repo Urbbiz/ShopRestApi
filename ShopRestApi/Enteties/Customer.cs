@@ -1,6 +1,8 @@
-﻿namespace ShopRestApi.Enteties
+﻿using ShopRestApi.Enteties.Base;
+
+namespace ShopRestApi.Enteties
 {
-    public class Customer
+    public class Customer : Entity
     {
     }
 }
