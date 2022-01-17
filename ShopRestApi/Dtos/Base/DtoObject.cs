@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ShopRestApi.Enteties.Base
+namespace ShopRestApi.Dtos.Base
 {
-    public class Entity
+    public class DtoObject
     {
-        [Key]
         public int Id { get; set; }
 
+        [MaxLength(50)]
         public string? Name { get; set; }
     }
 }
