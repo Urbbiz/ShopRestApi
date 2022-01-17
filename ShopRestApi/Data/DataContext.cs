@@ -10,10 +10,10 @@ namespace ShopRestApi.Data
 
         }       
 
-        public DbSet<Shop> Shops { get; set; }
+        public DbSet<Shop>? Shops { get; set; }
 
-        public DbSet<ShopItem> ShopItems { get; set; }
+        public DbSet<ShopItem>? ShopItems { get; set; }
 
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Customer>? Customers { get; set; }
     }
 }
