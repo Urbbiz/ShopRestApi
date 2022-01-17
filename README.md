@@ -18,7 +18,7 @@ This project is for educational porpuses only.
 5. Dependency Injection
 6. Models are divided into Entities and Data Transfer Objects (DTOs)
 7. Asynchronous Programming: Async/Await
-#### Link to Tests: - Still in progress 
+8. Tests
 
 #### Link to the frontend:
 - Still in progress
