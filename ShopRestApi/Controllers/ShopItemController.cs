@@ -1,31 +1,42 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using ShopRestApi.Controllers.Base;
 using ShopRestApi.Data;
+using ShopRestApi.Dtos;
 using ShopRestApi.Enteties;
+using ShopRestApi.Repositories;
+using ShopRestApi.Services;
 
 namespace ShopRestApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ShopItemController : ControllerBase
+    public class ShopItemController : GenericControllerBase<ShopItemDto, ShopItem>
     {
-        private readonly DataContext _context;
+        private IMapper _mapper;
+        private GenericRepository<ShopItem> _repository;
+        private PriceCalculationService _priceCalculationService;
 
-        public ShopItemController(DataContext context)
+        public ShopItemController(IMapper mapper, GenericRepository<ShopItem> repository, PriceCalculationService priceCalculationService) : base(mapper, repository)
         {
-            _context = context;
+            _mapper = mapper;
+            _repository = repository;
+            _priceCalculationService = priceCalculationService;
         }
 
         [HttpGet]
-        public List<ShopItem> GetAll()
+        public async override Task<List<ShopItemDto>> GetAll()
         {
-            return _context.ShopItems.ToList();
-        }
+            var enteties = await _repository.GetAll();
 
-        [HttpPost]
-        public void Post(ShopItem item)
-        {
-            _context.Add(item);
-            _context.SaveChanges();
+            var dtos = _mapper.Map<List<ShopItemDto>>(enteties);
+
+            var updatedDtos = dtos.Select(d => _priceCalculationService.ApplyDiscount(d));
+
+
+            return dtos;
+
         }
     }
+
 }

@@ -1,31 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using ShopRestApi.Controllers.Base;
 using ShopRestApi.Data;
+using ShopRestApi.Dtos;
 using ShopRestApi.Enteties;
+using ShopRestApi.Repositories;
 
 namespace ShopRestApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CustomerController : ControllerBase
+    public class CustomerController : GenericControllerBase<CustomerDto, Customer>
     {
-        private readonly DataContext _context;
-
-        public CustomerController(DataContext context)
+        public CustomerController(IMapper mapper, GenericRepository<Customer> repository) : base(mapper, repository)
         {
-            _context = context;
-        }
-
-        [HttpGet]
-        public List<Customer> GetAll()
-        {
-            return _context.Customers.ToList();
-        }
-
-        [HttpPost]  
-        public void Post(Customer entity)
-        {
-            _context.Add(entity);
-            _context.SaveChanges();
         }
     }
 }

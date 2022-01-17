@@ -32,7 +32,7 @@ namespace ShopRestApi.Repositories
 
         public T FinidById(int id)
         {
-            var entity = _context.Set<T>().FirstOrDefault(e => e.id == id);
+            var entity = _context.Set<T>().FirstOrDefault(e => e.Id == id);
             if (entity == null)
             {
                 throw new ArgumentException("");
@@ -42,7 +42,7 @@ namespace ShopRestApi.Repositories
 
         public async Task Delete(int id)
         {
-            var entity = _context.Set<T>().FirstOrDefault(e => e.id == id);
+            var entity = _context.Set<T>().FirstOrDefault(e => e.Id == id);
 
             if (entity != null)
             {

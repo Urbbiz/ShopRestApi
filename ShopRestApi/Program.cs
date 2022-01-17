@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ShopRestApi.Controllers.Base;
 using ShopRestApi.Data;
 using ShopRestApi.Repositories;
 
@@ -8,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped(typeof(GenericRepository<>));
+
+builder.Services.AddScoped(typeof(GenericControllerBase<,>));
 
 var defaultConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(d => d.UseSqlServer(defaultConnectionString));
