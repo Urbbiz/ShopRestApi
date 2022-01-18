@@ -4,7 +4,7 @@ using ShopRestApi.Enteties.Base;
 
 namespace ShopRestApi.Repositories
 {
-    public class GenericRepository<T> where T : Entity
+    public class GenericRepository<T> : IGenericRepository<T> where T : Entity
     {
         private readonly DataContext _context;
 

@@ -9,10 +9,10 @@ namespace ShopRestApi.Controllers.Base
     public class GenericControllerBase<TDto, TEntity> : ControllerBase where TDto : DtoObject where TEntity : Entity
     {
         private readonly IMapper _mapper;
-        private readonly GenericRepository<TEntity> _repository;
+        private readonly IGenericRepository<TEntity> _repository;
 
 
-        public GenericControllerBase(IMapper mapper, GenericRepository<TEntity> repository)
+        public GenericControllerBase(IMapper mapper, IGenericRepository<TEntity> repository)
         {
             _mapper = mapper;
             _repository = repository;
