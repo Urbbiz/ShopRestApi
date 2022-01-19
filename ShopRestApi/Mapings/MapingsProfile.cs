@@ -8,6 +8,8 @@ namespace ShopRestApi.Mapings
     {
         public MapingsProfile()
         {
+         
+
             CreateMap<ShopItemDto, ShopItem>().ReverseMap();
 
             CreateMap<ShopDto, Shop>().ReverseMap();

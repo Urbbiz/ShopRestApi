@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopRestApi.Data;
 
@@ -10,9 +11,10 @@ using ShopRestApi.Data;
 namespace ShopRestApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220118205246_ShopOwner")]
+    partial class ShopOwner
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,14 +72,8 @@ namespace ShopRestApi.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
                     b.Property<int>("ShopId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -117,7 +113,7 @@ namespace ShopRestApi.Migrations
 
                     b.HasIndex("ShopOwnerId");
 
-                    b.ToTable("ShopOwnerShops");
+                    b.ToTable("ShopOwnerShop");
                 });
 
             modelBuilder.Entity("ShopRestApi.Enteties.ShopItem", b =>
@@ -134,7 +130,7 @@ namespace ShopRestApi.Migrations
             modelBuilder.Entity("ShopRestApi.Enteties.ShopOwnerShop", b =>
                 {
                     b.HasOne("ShopRestApi.Enteties.Shop", "Shop")
-                        .WithMany("ShopOwnersShop")
+                        .WithMany("ShopOwners")
                         .HasForeignKey("ShopId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -154,7 +150,7 @@ namespace ShopRestApi.Migrations
                 {
                     b.Navigation("ShopItems");
 
-                    b.Navigation("ShopOwnersShop");
+                    b.Navigation("ShopOwners");
                 });
 
             modelBuilder.Entity("ShopRestApi.Enteties.ShopOwner", b =>

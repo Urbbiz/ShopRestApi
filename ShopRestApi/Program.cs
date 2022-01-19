@@ -2,15 +2,21 @@ using Microsoft.EntityFrameworkCore;
 using ShopRestApi.Controllers.Base;
 using ShopRestApi.Data;
 using ShopRestApi.Repositories;
+using ShopRestApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+//builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(GenericRepository<>));
 
 builder.Services.AddScoped(typeof(GenericControllerBase<,>));
+
+builder.Services.AddScoped(typeof(DiscountService));
+
+builder.Services.AddScoped(typeof(PriceCalculationService));
 
 var defaultConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(d => d.UseSqlServer(defaultConnectionString));

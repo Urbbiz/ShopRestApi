@@ -13,9 +13,9 @@ namespace ShopRestApi.Controllers
     [Route("[controller]")]
     public class ShopItemController : GenericControllerBase<ShopItemDto, ShopItem>
     {
-        private IMapper _mapper;
-        private GenericRepository<ShopItem> _repository;
-        private PriceCalculationService _priceCalculationService;
+        private readonly IMapper _mapper;
+        private readonly GenericRepository<ShopItem> _repository;
+        private readonly PriceCalculationService _priceCalculationService;
 
         public ShopItemController(IMapper mapper, GenericRepository<ShopItem> repository, PriceCalculationService priceCalculationService) : base(mapper, repository)
         {

@@ -16,6 +16,12 @@ namespace ShopRestApi.Controllers
         {
         }
 
-       
+        [HttpPost("{id}/Buy")]
+        public IActionResult Post2(int id)
+        {
+            return NoContent();
+        }
+
+
     }
 }
