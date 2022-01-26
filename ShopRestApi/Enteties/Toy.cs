@@ -1,10 +1,11 @@
 ﻿namespace ShopRestApi.Enteties
 {
-    public class Toy : ShopItem
+    public class Toy 
     {
-        public Toy()
-        {
-            Type = nameof(Toy);
-        }
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public decimal Price { get; set; }
     }
 }

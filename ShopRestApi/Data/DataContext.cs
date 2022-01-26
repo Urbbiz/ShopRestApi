@@ -14,6 +14,8 @@ namespace ShopRestApi.Data
 
         public DbSet<ShopItem>? ShopItems { get; set; }
 
+        public DbSet<Toy>? Toys { get; set; }
+
         public DbSet<Customer>? Customers { get; set; }
 
         public DbSet<ShopOwnerShop>? ShopOwnerShops { get; set; }

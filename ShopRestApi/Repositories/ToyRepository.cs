@@ -1,0 +1,35 @@
+﻿using Microsoft.EntityFrameworkCore;
+using ShopRestApi.Data;
+using ShopRestApi.Enteties;
+
+namespace ShopRestApi.Repositories
+{
+    public class ToyRepository
+    {
+        private readonly DataContext _context;
+
+        public ToyRepository(DataContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<List<Toy>> GetAll()
+        {
+            return await _context.Toys.ToListAsync();
+           
+        }
+
+        public async Task Add(Toy toy)
+        {
+            _context.Add(toy);
+            await _context.SaveChangesAsync();
+        }
+
+        public Toy GetByName(string name)
+        {
+            return _context.Toys.FirstOrDefault(s => s.Name == name);
+        }
+
+        
+    }
+}
