@@ -7,5 +7,6 @@ namespace ShopRestApi.Interfaces
         Task Add(Toy toy);
         Task<List<Toy>> GetAll();
         Toy GetByName(string name);
+        Task Delete(int id);
     }
 }

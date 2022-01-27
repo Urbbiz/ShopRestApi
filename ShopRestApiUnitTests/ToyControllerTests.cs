@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Moq;
 using ShopRestApi.Controllers;
-using ShopRestApi.Enteties;
+using ShopRestApi.Core.Enteties;
 using ShopRestApi.Interfaces;
 using ShopRestApi.Repositories;
 using ShopRestApi.Services;

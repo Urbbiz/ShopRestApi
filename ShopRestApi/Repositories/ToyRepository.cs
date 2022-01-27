@@ -31,6 +31,13 @@ namespace ShopRestApi.Repositories
             return _context.Toys.FirstOrDefault(s => s.Name == name);
         }
 
+        public async Task Delete(int id)
+        {
+           var item = _context.Toys.FirstOrDefault(s => s.Id == id);
 
+            _context.Remove(item);
+
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -47,5 +47,12 @@ namespace ShopRestApi.Controllers
 
             return _discountService.GetDiscountedPrice(item, toyDto.Quantity);
         }
+
+        [HttpDelete("{id}")]
+        public async Task Delete(int id)
+        {
+
+            await _repository.Delete(id);
+        }
     }
 }
