@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShopRestApi.Data;
 using ShopRestApi.Enteties.Base;
+using ShopRestApi.Interfaces;
 
 namespace ShopRestApi.Repositories
 {

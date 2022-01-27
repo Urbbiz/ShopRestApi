@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ShopRestApi.Dtos.Base;
 using ShopRestApi.Enteties.Base;
+using ShopRestApi.Interfaces;
 using ShopRestApi.Repositories;
 
 namespace ShopRestApi.Controllers.Base

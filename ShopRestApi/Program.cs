@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ShopRestApi.Controllers.Base;
 using ShopRestApi.Data;
+using ShopRestApi.Interfaces;
 using ShopRestApi.Repositories;
 using ShopRestApi.Services;
 
@@ -12,7 +13,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
 builder.Services.AddScoped(typeof(GenericRepository<>));
 
-builder.Services.AddScoped<ToyRepository>();
+builder.Services.AddScoped<IToyRepository, ToyRepository>();
 
 builder.Services.AddScoped(typeof(GenericControllerBase<,>));
 

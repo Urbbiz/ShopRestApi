@@ -1,6 +1,6 @@
 ﻿using ShopRestApi.Enteties.Base;
 
-namespace ShopRestApi.Repositories
+namespace ShopRestApi.Interfaces
 {
     public interface IGenericRepository<T> where T : Entity
     {

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopRestApi", "ShopRestApi\ShopRestApi.csproj", "{C3A8846B-98EF-4221-8EA6-8A798FCA0603}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopRestApiUnitTests", "ShopRestApiUnitTests\ShopRestApiUnitTests.csproj", "{4CE16B41-100F-4AFE-A8C9-7ACF657391AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopRestApiUnitTests", "ShopRestApiUnitTests\ShopRestApiUnitTests.csproj", "{4CE16B41-100F-4AFE-A8C9-7ACF657391AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,5 @@
 ﻿using ShopRestApi.Enteties.Base;
+using ShopRestApi.Interfaces;
 
 namespace ShopRestApi.Repositories
 {

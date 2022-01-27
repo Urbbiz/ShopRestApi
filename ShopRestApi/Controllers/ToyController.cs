@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ShopRestApi.Data;
 using ShopRestApi.Dtos;
 using ShopRestApi.Enteties;
+using ShopRestApi.Interfaces;
 using ShopRestApi.Repositories;
 using ShopRestApi.Services;
 
@@ -12,11 +13,11 @@ namespace ShopRestApi.Controllers
     [Route("[controller]")]
     public class ToyController : ControllerBase
     {
-        private readonly ToyRepository _repository;
+        private readonly IToyRepository _repository;
 
         private readonly DiscountService _discountService;
 
-        public ToyController(ToyRepository repository, DiscountService discountService)
+        public ToyController(IToyRepository repository, DiscountService discountService)
         {
             _repository = repository;
             _discountService = discountService;
@@ -25,7 +26,11 @@ namespace ShopRestApi.Controllers
         [HttpGet]
         public async Task<List<Toy>> GetAll()
         {
-            return await _repository.GetAll();
+            var items = await _repository.GetAll();
+
+            items.ForEach(i => i.Price = _discountService.GetDiscountedPrice(i, 1));
+
+            return items;
         }
 
         [HttpPost]
